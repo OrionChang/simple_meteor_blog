@@ -3,16 +3,21 @@
 		<div class="navbar-inner">
 			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-coll
 			apse">
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</a>
-		<a class="brand" href="{{postsListPath}}">Microscope</a>
-		<div class="nav-collapse collapse">
-			<ul class="nav pull-right">
-				<li>{{loginButtons}}</li>
-			</ul>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a>
+			<a class="brand" href="{{postsListPath}}">Microscope</a>
+			<div class="nav-collapse collapse">
+				<ul class="nav">
+					<li>
+						<a href="{{postSubmitPath}}">NEW</a>
+					</li>
+				</ul>	
+				<ul class="nav pull-right">
+					<li>{{loginButtons}}</li>
+				</ul>
+			</div>
 		</div>
-	</div>
-</header>
+	</header>
 </template>
