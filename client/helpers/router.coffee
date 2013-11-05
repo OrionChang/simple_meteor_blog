@@ -7,3 +7,15 @@ Meteor.Router.add
 			Session.set 'currentPostId', id
 
 	'/submit': 'postSubmit'
+
+
+
+Meteor.Router.filters
+	'requirelogin': (page) ->
+		if Meteor.user()
+			page
+		else
+			'accessDenied'
+
+
+Meteor.Router.filter 'requirelogin', only: 'postSubmit'
