@@ -19,10 +19,24 @@ Meteor.methods
 			throw new Meteor.Error 302, 'This link has already been posted', postWithSameLink._id
 
 
-		post = _.extend _.pick(postAttributes, 'url', 'title', 'message'), 
+		post = _.extend _.pick(postAttributes, 'url', 'message'), 
+			title: postAttributes.title + if this.isSimulation then ' (Client)' else ' (Server)'
 			userId: user._id
 			author: user.username
 			submitted: new Date().getTime()
+
+
+
+		if ! this.isSimulation
+			Future = Npm.require 'fibers/future'
+			future = new Future()
+			Meteor.setTimeout ()->
+				`future.return()`
+			, 5 * 1000
+
+			future.wait()
+
+		
 
 		postId = Posts.insert post
 
