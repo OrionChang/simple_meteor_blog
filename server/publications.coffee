@@ -1,5 +1,13 @@
-Meteor.publish 'posts', () ->
-	Posts.find()
+Meteor.publish 'paginatedPosts', (limit) ->
+	Posts.find {}, 
+		sort: 
+			submitted: -1
+		limit: limit
+
+
+Meteor.publish 'specificPost', (id) ->
+	id && Posts.find id
+
 
 
 Meteor.publish 'comments', (postId) ->
@@ -14,9 +22,9 @@ Meteor.publish 'notifications', () ->
 
 
 
-Meteor.publish 'tomPosts', ()->
-	Posts.find 'author' : 'Tom Coleman'
+# Meteor.publish 'tomPosts', ()->
+# 	Posts.find 'author' : 'Tom Coleman'
 
-Meteor.publish 'allPosts', ()->
-	Posts.find {}, fields:
-					author: false
+# Meteor.publish 'allPosts', ()->
+# 	Posts.find {}, fields:
+# 					author: false

@@ -5,7 +5,8 @@
       "router": {},
       "accounts-ui-bootstrap-dropdown": {},
       "spin": {},
-      "scss": {}
+      "scss": {},
+      "paginated-subscription": {}
     },
     "packages": {
       "router": {
@@ -27,6 +28,11 @@
         "git": "https://github.com/fourseven/meteor-scss.git",
         "tag": "v0.6.4.1",
         "commit": "bf203edb83565943cc0c00a31d536de7094f312b"
+      },
+      "paginated-subscription": {
+        "git": "https://github.com/tmeasday/meteor-paginated-subscription.git",
+        "tag": "v0.1.2",
+        "commit": "35e0c6112df2b4cfeb60b559276a93cac5ee2dd6"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",
