@@ -4,6 +4,7 @@
     "accounts-ui-bootstrap-dropdown": {},
     "spin": {},
     "scss": {},
-    "paginated-subscription": {}
+    "paginated-subscription": {},
+    "glyphicons-halflings": {}
   }
 }

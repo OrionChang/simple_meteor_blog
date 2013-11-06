@@ -16,4 +16,6 @@ Template.postSubmit.events
 					Meteor.Router.to('postPage', error.details)
 				else
 					Meteor.Router.to('postPage', id)
-				
+			
+
+			Meteor.Router.to('postPage', id)
