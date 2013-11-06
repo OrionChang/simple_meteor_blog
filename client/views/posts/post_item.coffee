@@ -7,6 +7,3 @@ Template.postItem.helpers
 		a.href = this.url
 		a.hostname
 
-	author: () ->
-		this.userId
-

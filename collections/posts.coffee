@@ -29,21 +29,10 @@ Meteor.methods
 
 
 		post = _.extend _.pick(postAttributes, 'url', 'message'), 
-			title: postAttributes.title + if this.isSimulation then ' (Client)' else ' (Server)'
+			title: postAttributes.title
 			userId: user._id
 			author: user.username
 			submitted: new Date().getTime()
-
-
-
-		if ! this.isSimulation
-			Future = Npm.require 'fibers/future'
-			future = new Future()
-			Meteor.setTimeout ()->
-				`future.return()`
-			, 5 * 1000
-
-			future.wait()
 
 		
 

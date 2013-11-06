@@ -1,4 +1,4 @@
-Meteor.subscribe 'allPosts'
+Meteor.subscribe 'posts'
 
 
 
