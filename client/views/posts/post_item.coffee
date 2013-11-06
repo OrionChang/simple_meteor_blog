@@ -7,3 +7,6 @@ Template.postItem.helpers
 		a.href = this.url
 		a.hostname
 
+	commentsCount: () ->
+		Comments.find(postId: this._id).count()	
+
