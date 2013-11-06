@@ -1,10 +1,11 @@
 <template name="postItem">
 	<div class="post">
-		<a href="#" class="upvote btn glyphicon glyphicon-arrow-up"></a>
+		<a href="#" class="upvote btn glyphicon glyphicon-arrow-up {{upvotedClass}}"></a>
 		<div class="post-content">
 			<h3><a href="{{url}}">{{title}}</a><span>{{domain}}</span></h3>
 			<p>
-				{{votes}} Votes, submitted by {{author}},
+				{{pluralize votes "Vote"}}
+				, submitted by {{author}},
 
 				<a href="{{postPagePath this}}">{{commentsCount}} comments</a>
 				{{#if ownPost}}
