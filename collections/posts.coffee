@@ -28,11 +28,11 @@ Meteor.methods
 			throw new Meteor.Error 302, 'This link has already been posted', postWithSameLink._id
 
 
-		post = _.extend _.pick(postAttributes, 'url', 'message'), 
-			title: postAttributes.title
+		post = _.extend _.pick(postAttributes, 'url', 'title', 'message'), 
 			userId: user._id
 			author: user.username
 			submitted: new Date().getTime()
+			commentsCount: 0
 
 		
 
