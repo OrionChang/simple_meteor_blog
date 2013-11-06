@@ -9,10 +9,17 @@ body {
 	background: #eee;
 	color: #666666;
 }
-.navbar { margin-bottom: 10px }
-.navbar .navbar-inner {
+
+.navbar { 
+
+	margin-bottom: 10px;
+}
+
+.navbar	.navbar-inner {
 	border-radius: 0px 0px 3px 3px;
 }
+
+
 #spinner { height: 300px }
 .post {
 	*zoom: 1;

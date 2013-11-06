@@ -4,7 +4,8 @@
     "basePackages": {
       "router": {},
       "accounts-ui-bootstrap-dropdown": {},
-      "spin": {}
+      "spin": {},
+      "scss": {}
     },
     "packages": {
       "router": {
@@ -21,6 +22,11 @@
         "git": "https://github.com/SachaG/meteor-spin.git",
         "tag": "v0.2.0",
         "commit": "fd3a2871a69442848b4b4e74f5e1ae28fa4a95a4"
+      },
+      "scss": {
+        "git": "https://github.com/fourseven/meteor-scss.git",
+        "tag": "v0.6.4.1",
+        "commit": "bf203edb83565943cc0c00a31d536de7094f312b"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",
