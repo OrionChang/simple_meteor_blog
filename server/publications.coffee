@@ -1,8 +1,20 @@
-Meteor.publish 'paginatedPosts', (limit) ->
+Meteor.publish 'newPosts', (limit) ->
 	Posts.find {}, 
 		sort: 
 			submitted: -1
 		limit: limit
+
+
+Meteor.publish 'bestPosts', (limit) ->
+	Posts.find {}, 
+		sort: 
+			votes: -1
+			commentsCount: -1
+			submitted: -1
+
+		limit: limit
+
+
 
 
 Meteor.publish 'specificPost', (id) ->

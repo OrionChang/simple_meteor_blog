@@ -1,6 +1,8 @@
 root = exports ? this
 
-root.postsHandle = Meteor.subscribeWithPagination 'paginatedPosts', 10
+root.newPostsHandle = Meteor.subscribeWithPagination 'newPosts', 10
+
+root.bestPostsHandle = Meteor.subscribeWithPagination 'bestPosts', 10 
 
 Deps.autorun () ->
 	Meteor.subscribe 'specificPost', Session.get('currentPostId')

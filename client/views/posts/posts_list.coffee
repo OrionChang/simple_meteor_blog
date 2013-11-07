@@ -1,17 +1,31 @@
+Template.newPosts.helpers
+	options: () ->
+		sort: 
+			submitted: -1
+		handle: newPostsHandle
+
+Template.bestPosts.helpers
+	options: () ->
+		sort: 
+			votes: -1
+			commentsCount: -1
+			submitted: -1
+		handle: bestPostsHandle
+
+
 Template.postsList.helpers
 	posts: () ->
 		Posts.find {}, 
-			sort:	
-				submitted: -1
-			limit: postsHandle.limit()
+			sort: this.sort
+			limit: this.handle.limit()
 
 
 	postsReady: () ->
-		! postsHandle.loading()
+		this.handle.ready()
 
 	allPostsLoaded: () ->
-		! postsHandle.loading() && 
-		Posts.find().count() < postsHandle.loaded()
+		this.handle.ready() && 
+			Posts.find().count() < this.handle.loaded()
 		
 
 
@@ -21,4 +35,4 @@ Template.postsList.helpers
 Template.postsList.events
 	'click .load-more': (e) ->
 		e.preventDefault()
-		postsHandle.loadNextPage()
+		this.handle.loadNextPage()
