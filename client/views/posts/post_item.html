@@ -18,8 +18,7 @@
 		<a href="{{postPagePath this}}" class="discuss btn">Discuss</a>
 
 		<div class="content">
-
-			<span>{{truncateText content 200}}</span>
+			<span>{{#markdown}}{{truncateText content 200}}{{/markdown}}</span>
 
 		</div>
 	</div>
