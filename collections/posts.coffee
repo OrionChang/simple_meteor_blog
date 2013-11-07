@@ -15,14 +15,15 @@ Meteor.methods
 	post: (postAttributes) ->
 		user = Meteor.user()
 
+
 		if !user
 			throw new Meteor.Error 401, 'You need to login to post new stories'
 
 
-		if !postAttributes.title
+		if !postAttributes.title || postAttributes.title.replace(/\s+/g, '').length <= 0
 			throw new Meteor.Error 422, 'Please fill in a title'
 
-		if !postAttributes.content
+		if !postAttributes.content || postAttributes.content.replace(/\s+/g, '').length <= 0
 			throw new Meteor.Error 422, 'Please fill in content'
 
 
@@ -40,6 +41,32 @@ Meteor.methods
 
 
 		postId
+
+	updatePost: (postAttributes, postId) ->
+
+		user = Meteor.user()
+
+
+		if !user
+			throw new Meteor.Error 401, 'You need to login to update post'
+		
+
+		if !postAttributes.title || postAttributes.title.replace(/\s+/g, '').length <= 0
+			throw new Meteor.Error 422, 'Please fill in a title'
+
+		if !postAttributes.content || postAttributes.content.replace(/\s+/g, '').length <= 0
+			throw new Meteor.Error 422, 'Please fill in content'
+
+
+		post = _.extend _.pick(postAttributes, 'title', 'content'), 
+			updated: new Date().getTime()
+			
+
+		Posts.update {_id: postId, userId: user._id}, {$set: post}
+
+
+		postId
+
 
 	upvote: (postId) ->
 		user = Meteor.user()		

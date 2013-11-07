@@ -5,11 +5,10 @@
 			<h3><a href="{{postPagePath this}}">{{title}}</a></h3>
 			<p>
 				{{pluralize votes "Vote"}}
-				, submitted by {{author}},
+				, submitted by {{author}}
+			</p>	
 				at {{friendlyTime submitted}}
 
-			</p>
-			<p>
 				<a href="{{postPagePath this}}">{{pluralize commentsCount "Comment"}}</a>
 				{{#if ownPost}}
 					<a href="{{postEditPath this}}">Edit</a>

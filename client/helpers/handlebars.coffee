@@ -8,7 +8,7 @@ root.Handlebars.registerHelper 'pluralize', (n, thing) ->
 		n + ' ' + thing + 's'
 
 root.Handlebars.registerHelper 'truncateText', (text, length) ->
-	
+
 	if text.length <= length
 		text
 	else
@@ -16,3 +16,5 @@ root.Handlebars.registerHelper 'truncateText', (text, length) ->
 
 
 root.Handlebars.registerHelper 'friendlyTime', (time) ->
+	d = new Date time
+	d.toLocaleTimeString() + " - " + d.toLocaleDateString()
