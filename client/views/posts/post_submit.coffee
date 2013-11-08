@@ -12,3 +12,12 @@ Template.postSubmit.events
 				throwError error.reason
 			else
 				Meteor.Router.to('newPosts', id)
+
+
+	'change input': (e) -> 
+		file = event.currentTarget.files[0]
+		reader = new FileReader()
+		reader.onload = (fileLoadEvent) ->
+      		Meteor.call('fileUpload', file, reader.result)
+   		
+   		reader.readAsBinaryString(file)
