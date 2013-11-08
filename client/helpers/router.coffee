@@ -20,6 +20,11 @@ Meteor.Router.add
 
 	'/submit': 'postSubmit'
 
+	'/files/:_id': 
+		to: 'showFile'
+		and: (id) ->
+			Session.set 'currentFileId', id
+
 
 
 Meteor.Router.filters

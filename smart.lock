@@ -7,7 +7,8 @@
       "spin": {},
       "scss": {},
       "paginated-subscription": {},
-      "glyphicons-halflings": {}
+      "glyphicons-halflings": {},
+      "collectionFS": {}
     },
     "packages": {
       "router": {
@@ -40,6 +41,11 @@
         "tag": "v1.0.2",
         "commit": "c943b42cddb92be8218322e7d638a98ef5d10366"
       },
+      "collectionFS": {
+        "git": "https://github.com/raix/Meteor-CollectionFS.git",
+        "tag": "v0.3.6",
+        "commit": "e28922685d07fc2bd17e23571eeb050cd85176f7"
+      },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",
         "tag": "v1.3.5",
@@ -49,6 +55,11 @@
         "git": "https://github.com/tmeasday/meteor-HTML5-History-API.git",
         "tag": "v4.0.0",
         "commit": "dc4965f1424cfca625ec3fbea17eace03f8e32c5"
+      },
+      "cfs-public-folder": {
+        "git": "https://github.com/nooitaf/meteor-cfs-public-folder.git",
+        "tag": "v0.0.3",
+        "commit": "f47a0f1963be82121c975f955196b1fbb0cdbca3"
       }
     }
   }

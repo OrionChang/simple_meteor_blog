@@ -17,6 +17,15 @@
 		</div>
 		<a href="{{postPagePath this}}" class="discuss btn">Discuss</a>
 
+		<div>
+			{{#if file}}
+				{{#with file}}
+		    		<img src="{{cfsFileUrl 'default2'}}" />
+		    	{{/with}}
+		    {{else}}
+		    	No image
+		    {{/if}}
+		</div>
 		<div class="content">
 			<span>{{#markdown}}{{truncateText content 200}}{{/markdown}}</span>
 

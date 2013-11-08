@@ -9,6 +9,11 @@ Template.postItem.helpers
 		else
 			'disabled'
 
+	file: () ->
+		if this.filesId && this.filesId.length > 0
+			console.log(PostsFS.findOne this.filesId[0])
+			PostsFS.findOne this.filesId[0]
+
 Template.postItem.rendered = () ->
 	instance = this
 	rank = instance.data._rank

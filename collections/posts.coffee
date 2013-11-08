@@ -27,7 +27,7 @@ Meteor.methods
 			throw new Meteor.Error 422, 'Please fill in content'
 
 
-		post = _.extend _.pick(postAttributes, 'title', 'content'), 
+		post = _.extend _.pick(postAttributes, 'title', 'content', 'filesId'), 
 			userId: user._id
 			author: user.username
 			submitted: new Date().getTime()
@@ -88,7 +88,7 @@ Meteor.methods
 					votes: 1
 
 			})
-			
+
 
 			
 

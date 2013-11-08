@@ -12,6 +12,8 @@ Deps.autorun () ->
 
 Meteor.subscribe 'notifications'
 
+Meteor.subscribe 'postsFiles'
+
 
 # Deps.autorun () ->
 # 	console.log "There are " + Posts.find().count() + " posts."

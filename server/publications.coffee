@@ -29,6 +29,10 @@ Meteor.publish 'comments', (postId) ->
 Meteor.publish 'notifications', () ->
 	Notifications.find userId: this.userId
 
+Meteor.publish 'postsFiles', () ->
+	PostsFS.find()
+    
+
 
 
 
