@@ -6,6 +6,7 @@
     "scss": {},
     "paginated-subscription": {},
     "glyphicons-halflings": {},
-    "collectionFS": {}
+    "collectionFS": {
+	"version": "0.3.1"}
   }
 }

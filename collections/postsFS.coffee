@@ -1,6 +1,6 @@
 root = exports ? this
 
-root.PostsFS = new CollectionFS('posts', { autopublish: false })
+root.PostsFS = new CollectionFS('posts')
 
 
 PostsFS.allow
@@ -23,10 +23,20 @@ PostsFS.filter
 		contentTypes: ['image/*']
 
 
-PostsFS.fileHandlers
 
-    default2: (options) ->
-        if options.fileRecord.len > 5000000 || options.fileRecord.contentType != 'image/jpeg'
-            return null
-        console.log('I am handling default2: ' + options.fileRecord.filename)
-        options
+handler = 
+        "default1": (options) ->
+            return {
+                blob: options.blob,
+                fileRecord: options.fileRecord
+            }
+
+PostsFS.fileHandlers handler
+
+# PostsFS.fileHandlers
+
+#     default2: (options) ->
+#         if options.fileRecord.len > 5000000 || options.fileRecord.contentType != 'image/jpeg'
+#             return null
+#         console.log('I am handling default2: ' + options.fileRecord.filename)
+#         options
