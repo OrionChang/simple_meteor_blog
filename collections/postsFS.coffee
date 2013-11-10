@@ -24,15 +24,22 @@ PostsFS.filter
 
 
 
-handler = 
+
+
+
+if Meteor.isServer
+    handler = 
         "default1": (options) ->
             return {
                 blob: options.blob,
                 fileRecord: options.fileRecord
             }
 
-PostsFS.fileHandlers handler
 
+
+    PostsFS.fileHandlers handler
+
+    
 # PostsFS.fileHandlers
 
 #     default2: (options) ->

@@ -5,16 +5,27 @@ Template.postItem.helpers
 	upvotedClass: () ->
 		userId = Meteor.userId()
 		if userId && !_.include this.upvoters, userId
-			'btn-primary upvotable'
+			'upvotable'
 		else
 			'disabled'
 
 	file: () ->
 		if this.filesId && this.filesId.length > 0
-			console.log(PostsFS.findOne this.filesId[0])
 			PostsFS.findOne this.filesId[0]
 
+	isPostPage: () ->
+		Meteor.Router.page() == "postPage"
+
+	linkToPost: () ->
+
+		html = "<a href='/posts/"
+		html += this._id
+		html += "'>Read more </a>"
+	
+
 Template.postItem.rendered = () ->
+
+
 	instance = this
 	rank = instance.data._rank
 	$this = $(this.firstNode)

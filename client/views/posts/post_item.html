@@ -1,35 +1,73 @@
 <template name="postItem">
 	<div class="post">
-		<a href="#" class="upvote btn glyphicon glyphicon-arrow-up {{upvotedClass}}"></a>
-		<div class="post-content">
-			<h3><a href="{{postPagePath this}}">{{title}}</a></h3>
-			<p>
-				{{pluralize votes "Vote"}}
-				, submitted by {{author}}
-			</p>	
+		<div class="row-fluid post-header">
+			
+				<h3><a href="{{postPagePath this}}">{{title}}</a></h3>
+
+		</div>
+<!-- 		<a href="{{postPagePath this}}" class="discuss btn">Discuss</a> -->
+
+
+		<div class="content row-fluid post-content">
+
+			
+				{{#if file}}
+					{{#if isPostPage}}
+						<div class="post-content-picture pull-left">
+							{{#with file}}
+					    		<img src="{{cfsFileUrl 'default1'}}" />
+					    	{{/with}}
+				    	</div>
+
+				    	<div class="post-content-text">
+						
+					{{else}}
+						<div class="post-content-thumbnail span4">
+							{{#with file}}
+					    		<img src="{{cfsFileUrl 'default1'}}" class="span12 post-content-picture-img img-rounded" />
+					    	{{/with}}
+				    	</div>
+
+				    	<div class="post-content-text span8">
+			    	{{/if}}
+			    {{else}}
+			    	<div class="post-content-text span12">
+
+			    {{/if}}
+
+			    {{#if isPostPage}}
+					{{#markdown}}{{{content}}}{{/markdown}}
+				{{else}}
+					{{#markdown}}{{{truncateText content 200 linkToPost}}}{{/markdown}}
+			    {{/if}}
+			</div>
+
+		</div>
+
+
+
+		<div class="row-fluid post-footer divider">
+			<i class = "post-info span9">
+				Submitted by {{author}}
 				at {{friendlyTime submitted}}
+				,
+				{{pluralize votes "Vote"}}
+				, 
+				{{pluralize commentsCount "Comment"}}
 
-				<a href="{{postPagePath this}}">{{pluralize commentsCount "Comment"}}</a>
+			</i>
+
+			<div class="post-actions span3">
 				{{#if ownPost}}
-					<a href="{{postEditPath this}}">Edit</a>
+					<a href="{{postEditPath this}}" class="glyphicon glyphicon-edit"></a>
 				{{/if}}
-			</p>
-		</div>
-		<a href="{{postPagePath this}}" class="discuss btn">Discuss</a>
 
-		<div>
-			{{#if file}}
-				{{#with file}}
-		    		<img src="{{cfsFileUrl 'default1'}}" />
-		    	{{/with}}
-		    {{else}}
-		    	No image
-		    {{/if}}
-		</div>
-		<div class="content">
-			<span>{{#markdown}}{{truncateText content 200}}{{/markdown}}</span>
+				<a href="#" class="upvote glyphicon glyphicon-thumbs-up {{upvotedClass}}"></a>
 
+				<a href="{{postPagePath this}}" class="glyphicon glyphicon-comment"></a>
+			</div>
 		</div>
+		
 	</div>
 </template>
 

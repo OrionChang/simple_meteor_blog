@@ -7,12 +7,12 @@ root.Handlebars.registerHelper 'pluralize', (n, thing) ->
 	else
 		n + ' ' + thing + 's'
 
-root.Handlebars.registerHelper 'truncateText', (text, length) ->
+root.Handlebars.registerHelper 'truncateText', (text, length, link) ->
 
 	if text.length <= length
 		text
 	else
-		text.substring(0,length) + "..."
+		text.substring(0,length) + "..." + link
 
 
 root.Handlebars.registerHelper 'friendlyTime', (time) ->
