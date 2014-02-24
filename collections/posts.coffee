@@ -6,9 +6,12 @@ Posts.allow
 	update: ownsDocument
 	remove: ownsDocument
 
+
 Posts.deny
 	update: (userId, post, fieldNames) ->
 		_.without(fieldNames, 'title', 'content').length > 0
+
+	false
 
 
 Meteor.methods

@@ -25,6 +25,8 @@ Template.postItem.helpers
 
 Template.postItem.rendered = () ->
 
+	instance = this
+	console.log instance.currentPosition
 
 	instance = this
 	rank = instance.data._rank
